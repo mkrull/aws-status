@@ -5,11 +5,11 @@ machines building and running the images.
 
 Install:
 
-    $ go get github.com/mkrull/aws-status
+    $ git clone https://github.com/mkrull/aws-status.git
 
 Build:
 
-    $ cd $GOPATH/src/github.com/mkrull/aws-status
+    $ cd aws-status
     $ make
 
 Building results in a docker image that can be run with `make` as well:
