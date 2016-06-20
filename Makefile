@@ -16,7 +16,7 @@ $(PWD)/build/sloppy-aws: $(PWD)/build builder
 		-e GOPATH=/go \
 		-v $(PWD):/go/src/$(MOUNTDIR) \
 		-v $(PWD)/build:/go/bin \
-		aws-check-builder sh -c "go install $(GOPROJ)"
+		sloppy-aws-builder sh -c "go install $(GOPROJ)"
 
 builder:
 	@docker build -t sloppy-aws-builder -f Dockerfile.builder $(PWD)
@@ -25,7 +25,7 @@ test: builder
 	@docker run \
 		-e GOPATH=/go \
 		-v $(PWD):/go/src/$(MOUNTDIR) \
-		aws-check-builder sh -c "cd /go/src/$(GOPROJ) && go test $$(go list ./... | grep -v /vendor/)"
+		sloppy-aws-builder sh -c "cd /go/src/$(GOPROJ) && go test $$(go list ./... | grep -v /vendor/)"
 
 clean:
 	@rm -rf $(PWD)/build

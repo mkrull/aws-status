@@ -18,10 +18,6 @@ var (
 	regions = []string{"NA", "EU", "SA", "AP"}
 )
 
-type notifier interface {
-	notify(string) error
-}
-
 type status struct {
 	Region  string
 	Service string
